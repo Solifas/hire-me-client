@@ -1,0 +1,42 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    // max-width: 95vw;
+    margin: 0 auto;
+    height: 300px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.toolBar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 16px;
+}
+
+.rightNav{
+    display: flex;
+    margin: 5px;
+}
+
+.username{
+    font-size: 14px;
+    color: #182c59;
+    margin-right: 8px;
+    margin-top: 3px;
+}
+
+.searchInput{
+    background-color: #a9a5a523;
+    width: 70vw;
+    border-radius: 20px;
+    height: 40px;
+}

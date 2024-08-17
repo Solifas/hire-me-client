@@ -1,0 +1,91 @@
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background-color: #99999943;
+    margin: 10px;
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.featured {
+    text-align: start;
+    margin: 5px;
+    font-size: 12px;
+    background-color: #d7627f;
+    width: 60px;
+    border-radius: 5px;
+    span {
+        margin: 2px;
+        color: #fff;
+    }
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.title {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.name {
+    font-size: 10px;
+    text-align: left;
+    color: #182c59;
+}
+
+.shortDescription {
+    display: flex;
+    font-size: 10px;
+    color: #565656;
+    margin: 2px;
+    text-align: left !important;
+    align-items: start;
+}
+
+.rating {
+    display: flex;
+    align-items: left;
+    font-size: 10px;
+}
+
+.reviews {
+    font-size: 14px;
+    color: #555;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.button {
+    margin: 10px 0;
+    height: 30px;
+    width: 90px;
+    background-color: #218968;
+    border-radius: 10px;
+    color: #FFF;
+    span {
+        font-size: 10px;
+    }
+}

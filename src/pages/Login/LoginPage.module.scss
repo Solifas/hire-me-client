@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .header {
+        color: #d28d0f;
+    }
+
+
+    .MuiOutlinedInput-root .Mui-focused {
+        border-color: #d28d0f !important;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // width: 200px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+
+        .login_form__title {
+            font-size: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+}

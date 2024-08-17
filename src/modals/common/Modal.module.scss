@@ -1,0 +1,16 @@
+.closeButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+*.MuiDialog-paperWidthSm {
+    min-width: 800px !important;
+}
+
+.modal {
+    display: flex !important;
+    min-width: 800px !important;
+}

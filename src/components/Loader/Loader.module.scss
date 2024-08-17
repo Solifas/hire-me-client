@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+    margin: 0;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+
+    .img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.loaderMessage {
+    color: #d28d0f;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
