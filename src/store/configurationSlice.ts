@@ -2,11 +2,13 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export interface ConfgurationState {
     showLoading: boolean;
+    canEditProfile: boolean;
     loaderMessage: string | undefined;
 }
 
 const initialState: ConfgurationState = {
     showLoading: false,
+    canEditProfile: false,
     loaderMessage: undefined
 }
 
@@ -20,9 +22,12 @@ export const configurationSlice = createSlice({
         },
         setLoaderMessage: (state, action: PayloadAction<string | undefined>) => {
             state.loaderMessage = action.payload;
+        },
+        setCanEditProfile: (state, action: PayloadAction<boolean>) => {
+            state.canEditProfile = action.payload;
         }
     }
 });
 
-export const { showLoading, setLoaderMessage } = configurationSlice.actions;
+export const { showLoading, setLoaderMessage, setCanEditProfile } = configurationSlice.actions;
 export const configurationReducer = configurationSlice.reducer;

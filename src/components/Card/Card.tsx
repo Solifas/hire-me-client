@@ -4,14 +4,14 @@ import { Button } from "@material-ui/core";
 
 
 
-export default function Card(props: { firstName: string, lastName: string, title?: string, shortDescription?: string, rate: number, city?: string }) {
+export default function Card(props: { firstName: string, lastName: string, title?: string, shortDescription?: string, rate: number | undefined, city?: string, onClick?: () => void }) {
     const [expanded, setExpanded] = React.useState(false);
 
     return (
-        <div className={styles.card}>
-            <div className={styles.featured}> 
+        <div className={styles.card} onClick={props.onClick}>
+            <div className={styles.featured}>
                 <span>Featured</span>
-                </div>
+            </div>
             <div className={styles.details}>
                 <h2 className={styles.title}>{props.title}</h2>
                 <span className={styles.name}>Name: {`${props.firstName} ${props.lastName}`}</span>
@@ -19,7 +19,7 @@ export default function Card(props: { firstName: string, lastName: string, title
                 <div className={styles.rating}>Location:  {props.city}</div>
                 <div className={styles.rating}>Number of gigs: {20}</div>
                 <div className={styles.rating}>Rate/day: R {props.rate}.00</div>
-                <div className={styles.shortDescription}>{props.shortDescription?.substring(0,200)}...</div>
+                <div className={styles.shortDescription}>{props.shortDescription?.substring(0, 200)}...</div>
                 {/* can you ensure that the shorddescription has a maximum text of 150 characters */}
 
                 <div className={styles.buttons}>
@@ -28,4 +28,5 @@ export default function Card(props: { firstName: string, lastName: string, title
                 </div>
             </div>
         </div>
-    );}
+    );
+}

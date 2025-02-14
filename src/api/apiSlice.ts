@@ -7,7 +7,7 @@ import { GetUsersPayload } from '../types/GetUsersPayload';
 
 export const apiSlice = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: constants.baseUrl }),    
+    baseQuery: fetchBaseQuery({ baseUrl: constants.baseUrl }),
     tagTypes: ['Login', 'Users'],
     endpoints: (builder) => ({
         loginUser: builder.mutation<LoginResponse, LoginPayload>({
@@ -18,7 +18,7 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ['Login'],
         }),
-        getUsers: builder.query<{ users: User[] }, GetUsersPayload>({
+        getUsers: builder.query<User[], GetUsersPayload>({
             query: (usersPayload: GetUsersPayload) => ({
                 url: `/api/user/users?numberProfiles=${usersPayload.numberOfUsers} `,
                 method: 'GET',

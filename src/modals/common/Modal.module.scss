@@ -6,11 +6,8 @@
     cursor: pointer;
 }
 
-*.MuiDialog-paperWidthSm {
-    min-width: 800px !important;
-}
-
 .modal {
-    display: flex !important;
-    min-width: 800px !important;
+    display: flex;
+    flex-direction: column;
+    min-width: 400px !important;
 }

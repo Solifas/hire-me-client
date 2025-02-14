@@ -19,12 +19,14 @@ const Modal = (props: PropsWithChildren<ModalProps>) => {
             <Dialog
                 open={props.isOpen}
                 keepMounted={true}
-                className={styles.modal}
+
             >
-                <div className={styles.closeButton} onClick={() => modal?.hide()}>
-                    <Close />
+                <div className={styles.modal}>
+                    <div className={styles.closeButton} onClick={() => modal?.hide()}>
+                        <Close />
+                    </div>
+                    {props.children}
                 </div>
-                {props.children}
             </Dialog>
     )
 }

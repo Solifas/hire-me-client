@@ -1,0 +1,23 @@
+.workExperienceContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .editAboutIcon {
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin: 0;
+    }
+
+    .title {
+        margin-top: 10px;
+    }
+}
+
+.line {
+    border: 1px solid #ebd080;
+    width: 70vw;
+    margin: 0 auto;
+}

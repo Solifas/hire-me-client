@@ -1,12 +1,13 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Loader from './components/Loader/Loader';
+import './App.css';
 import HomePage from './pages/Home/HomePage';
-import { useAppSelector } from './hooks/appHelper';
+import Loader from './components/Loader/Loader';
 import LoginPage from './pages/Login/LoginPage';
+import Header from './components/Header/Header';
+import { useAppSelector } from './hooks/appHelper';
 import ProfilePage from './pages/Profile/ProfilePage';
-import ProfileUpdatePage from './pages/ProfileUpdate/ProfileUpdatePage';
 import { ModalProvider } from './context/ModalProvider';
+import RegisterPage from './pages/Register/RegisterPage';
 
 
 const createRoutes = () => (
@@ -14,24 +15,27 @@ const createRoutes = () => (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<HomePage />} />
-      <Route path="/profile" element={<div><ProfilePage /></div>} />
-      <Route path="/profile/:id" element={<div><ProfileUpdatePage /></div>} />
-      <Route path="/register" element={<div>Registration Page</div>} />
+      <Route path="/profile/:id" element={<ProfilePage />} />
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   </BrowserRouter>
 )
 
 function App() {
   const loader = useAppSelector(x => x.configuration.showLoading);
+  const showHeader = useAppSelector(x => true);
   const loaderMessage = useAppSelector(x => x.configuration.loaderMessage);
 
   return (
     <ModalProvider>
       <div className="App">
-        {loader && <Loader loaderMessage={loaderMessage} />}
-        <div className='AppContainer'>
-          {createRoutes()}
-        </div>
+        {loader ? <Loader loaderMessage={loaderMessage} />
+          :
+          <div className='AppContainer'>
+            {showHeader && <Header />}
+            {createRoutes()}
+          </div>
+        }
       </div>
     </ModalProvider>
   );

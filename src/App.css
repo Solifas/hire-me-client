@@ -4,14 +4,12 @@
   margin: 0 auto;
   overflow: auto;
   background-color: rgb(231, 247, 247);
-  /* background-image: url('assets/images/loginBg.jpg'); */
 
   .AppContainer {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin: 0 auto;
     height: 96vh;
-    /* max-width: 400px; */
+    max-width: 400px;
   }
 }

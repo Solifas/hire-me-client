@@ -19,7 +19,7 @@ const useLoginPageController = () => {
         if (isSuccess) {
             configuration.showLoader(false);
             auth.setCurrentUser(data.data);
-            navigate('/home');
+            navigate('/');
         }
         if (data.isError) {
             configuration.showLoader(false);
@@ -31,7 +31,7 @@ const useLoginPageController = () => {
             modal?.show('error');
         }
 
-    }, [auth, configuration, data, navigate]);
+    }, [auth, configuration, data, modal, navigate]);
 
     const form = useForm();
     const handleLogin = (event: any) => {

@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { useAppDispatch } from './appHelper';
-import { setLoaderMessage, showLoading } from '../store/configurationSlice';
+import { setCanEditProfile, setLoaderMessage, showLoading } from '../store/configurationSlice';
 interface ConfigurationProps {
     showLoader: (isLoading: boolean) => void;
     setLoadMessage: (loadMessage: string) => void;
+    setCanEditProfile: (canEditProfile: boolean) => void;
 }
 
 
@@ -12,6 +13,7 @@ const useConfigurationActions = (): ConfigurationProps => {
     return useMemo(() => ({
         showLoader: (isLoading) => { dispatch(showLoading(isLoading)) },
         setLoadMessage: (loaderMessage) => { dispatch(setLoaderMessage(loaderMessage)) },
+        setCanEditProfile: (canEditProfile) => { dispatch(setCanEditProfile(canEditProfile)) },
     }), [dispatch]);
 }
 

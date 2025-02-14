@@ -1,16 +1,18 @@
+import { Experience } from "./Experience";
+
 export interface User {
+    id: string;
     firstName: string;
     lastName: string;
     email: string;
-    rate: number;
+    rate?: number;
     city?: string;
     availability?: string;
+    workExperience?: Experience[];
     shortDescription?: string;
     longDescription?: string;
-    jobDescription?: string;
-    experienceYears: number;
-    experience?: string;
-    contactNumber: number;
-    showProfile: boolean;
+    contactNumber?: number;
+    showProfile?: boolean;
     title?: string;
+    skills?: string[];
 }
