@@ -6,6 +6,17 @@ provider "aws" {
 # Create S3 bucket
 resource "aws_s3_bucket" "hire_me_bucket" {
   bucket = var.bucket_name
+
+  lifecycle {
+    ignore_changes  = all  # Ignore all changes after creation
+    prevent_destroy = true # Optional: prevents accidental deletion
+  }
+
+  # Handle bucket already exists error
+  count = try(
+    aws_s3_bucket.hire_me_bucket.bucket,
+    0
+  ) == 0 ? 1 : 0
 }
 
 # Enable website hosting
