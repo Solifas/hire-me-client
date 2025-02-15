@@ -9,6 +9,11 @@ data "aws_s3_bucket" "existing_bucket" {
   count  = try(data.aws_s3_bucket.existing_bucket[0].id, "") != "" ? 0 : 1
 }
 
+locals {
+  bucket_id  = try(data.aws_s3_bucket.existing_bucket[0].id, aws_s3_bucket.hire_me_bucket.id)
+  bucket_arn = try(data.aws_s3_bucket.existing_bucket[0].arn, aws_s3_bucket.hire_me_bucket.arn)
+}
+
 # Create S3 bucket
 resource "aws_s3_bucket" "hire_me_bucket" {
   bucket = var.bucket_name
@@ -24,7 +29,7 @@ resource "aws_s3_bucket" "hire_me_bucket" {
 
 # Enable website hosting
 resource "aws_s3_bucket_website_configuration" "hire_me" {
-  bucket = aws_s3_bucket.hire_me_bucket.id
+  bucket = local.bucket_id
 
   index_document {
     suffix = "index.html"
@@ -37,7 +42,7 @@ resource "aws_s3_bucket_website_configuration" "hire_me" {
 
 # Configure bucket policy for public access
 resource "aws_s3_bucket_policy" "hire_me" {
-  bucket = aws_s3_bucket.hire_me_bucket.id
+  bucket = local.bucket_id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -49,7 +54,7 @@ resource "aws_s3_bucket_policy" "hire_me" {
           AWS = "*"
         }
         Action   = "s3:GetObject"
-        Resource = "${aws_s3_bucket.hire_me_bucket.arn}/*"
+        Resource = "${local.bucket_arn}/*"
       },
     ]
   })
@@ -57,7 +62,7 @@ resource "aws_s3_bucket_policy" "hire_me" {
 
 # Enable static website hosting
 resource "aws_s3_bucket_public_access_block" "hire_me" {
-  bucket = aws_s3_bucket.hire_me_bucket.id
+  bucket = local.bucket_id
 
   block_public_acls       = false
   block_public_policy     = false
