@@ -16,7 +16,6 @@ const ProfilePage = () => {
                     {canEdit &&
                         <div className={styles.editAboutIcon} onClick={onAboutClick}>
                             <Edit />
-
                         </div>
                     }
                 </div>
@@ -38,7 +37,6 @@ const ProfilePage = () => {
                             id={work.id}
                         />))
                     }
-
                 </div>
                 <div>
                     <br />
